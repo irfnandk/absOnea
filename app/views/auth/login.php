@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Masuk · Absensi</title>
+    <link rel="icon" href="/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
     <style>
@@ -154,7 +155,6 @@
 
     <div class="login-card">
         <div class="brand">
-            <!-- Gunakan path absolut /logo.png yang akan diarahkan ke public/logo.png di Vercel dan di lokal -->
             <img src="/logo.png" alt="Logo" style="display:block; max-width:72px; margin:0 auto 10px;">
             <h1>Absensi</h1>
             <p>Sistem Kehadiran ONEA</p>
