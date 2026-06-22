@@ -1,13 +1,14 @@
 <?php
-namespace App\models;
-use App\config\Database;
 
-class DosenModel
+namespace App\models;
+use App\config\database;
+
+class dosenmodel
 {
     private $db;
     public function __construct()
     {
-        $this->db = Database::getConnection();
+        $this->db = database::getConnection();
     }
     public function getAll()
     {
@@ -33,7 +34,7 @@ class DosenModel
     {
         $this->db->beginTransaction();
         try {
-            $userModel = new UserModel();
+            $userModel = new \App\models\usermodel();
             $userId = $userModel->create($data['email'], $data['password'], 'dosen');
             if (!$userId) throw new \Exception('Gagal membuat user');
             $stmt = $this->db->prepare("INSERT INTO dosen (nidn, nama, email, user_id) VALUES (?, ?, ?, ?)");
@@ -58,7 +59,7 @@ class DosenModel
             if (!$dosen) throw new \Exception('Data tidak ditemukan');
             $stmt = $this->db->prepare("DELETE FROM dosen WHERE id = ?");
             $stmt->execute([$id]);
-            $userModel = new UserModel();
+            $userModel = new \App\models\usermodel();
             $userModel->delete($dosen['user_id']);
             $this->db->commit();
             return true;

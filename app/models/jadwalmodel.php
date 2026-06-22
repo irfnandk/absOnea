@@ -1,4 +1,5 @@
 <?php
+
 namespace App\models;
 use App\config\database;
 
@@ -12,6 +13,12 @@ class jadwalmodel
     public function getAll()
     {
         return $this->db->query("SELECT j.*, mk.nama_mk, d.nama as dosen_nama FROM jadwal j JOIN mata_kuliah mk ON j.mata_kuliah_id = mk.id JOIN dosen d ON j.dosen_id = d.id ORDER BY j.hari, j.jam_mulai")->fetchAll();
+    }
+    public function getByDosen($dosenId)
+    {
+        $stmt = $this->db->prepare("SELECT j.*, mk.nama_mk FROM jadwal j JOIN mata_kuliah mk ON j.mata_kuliah_id = mk.id WHERE j.dosen_id = ? ORDER BY j.hari, j.jam_mulai");
+        $stmt->execute([$dosenId]);
+        return $stmt->fetchAll();
     }
     public function getById($id)
     {
