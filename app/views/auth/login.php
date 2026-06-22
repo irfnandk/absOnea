@@ -154,13 +154,8 @@
 
     <div class="login-card">
         <div class="brand">
-            <!-- 
-                PATH LOGO:
-                - Karena file logo.png ada di public/ 
-                - Maka gunakan "logo.png" (tanpa slash) 
-                  karena halaman login diakses dari public/
-            -->
-            <img src="logo.png" alt="Logo" style="display:block; max-width:72px; margin:0 auto 10px;">
+            <!-- Gunakan path absolut /logo.png yang akan diarahkan ke public/logo.png di Vercel dan di lokal -->
+            <img src="/logo.png" alt="Logo" style="display:block; max-width:72px; margin:0 auto 10px;">
             <h1>Absensi</h1>
             <p>Sistem Kehadiran ONEA</p>
         </div>
