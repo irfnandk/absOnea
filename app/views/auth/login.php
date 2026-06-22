@@ -155,7 +155,7 @@
 
     <div class="login-card">
         <div class="brand">
-            <img src="/logo.png" alt="Logo" style="display:block; max-width:72px; margin:0 auto 10px;">
+            <img src="/logo.png" alt="Logo" style="display:block; max-width:72px; margin:0 auto 10px;" id="logoImg">
             <h1>Absensi</h1>
             <p>Sistem Kehadiran ONEA</p>
         </div>
@@ -190,6 +190,19 @@
             <a href="#">lupa sandi</a>
         </div>
     </div>
+
+    <script>
+        // Fallback: jika logo gagal dimuat, gunakan teks
+        document.getElementById('logoImg').onerror = function() {
+            this.style.display = 'none';
+            var span = document.createElement('span');
+            span.textContent = '📚';
+            span.style.fontSize = '48px';
+            span.style.display = 'block';
+            span.style.margin = '0 auto 10px';
+            this.parentNode.insertBefore(span, this.nextSibling);
+        };
+    </script>
 
 </body>
 </html>
